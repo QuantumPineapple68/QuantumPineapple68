@@ -18,9 +18,11 @@ jobs:
           github_user_name: QuantumPineapple68
           outputs: dist/github-contribution-grid-snake.svg
 
-      - name: push dist folder to output branch
+      - name: push snake svg to the output branch
         run: |
-          cd dist
+          mkdir -p /tmp/snake-output
+          cp dist/github-contribution-grid-snake.svg /tmp/snake-output/
+          cd /tmp/snake-output
           git init
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
